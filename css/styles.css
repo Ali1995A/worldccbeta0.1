@@ -179,7 +179,7 @@ select:hover {
 
 /* 确保选项的背景色和文字颜色正确 */
 select option {
-    background-color: var(--bg-color);
+    background-color: #1a1a1a;
     color: var(--text-color);
 }
 
