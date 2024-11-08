@@ -185,10 +185,10 @@ select option {
 
 /* 深色主题特别处理 */
 .dark-theme select option {
-    background-color: #ffffff;
+    background-color: #1a1a1a;
 }
 
 /* 浅色主题特别处理 */
 .light-theme select option {
-    background-color: #ffffff;
+    background-color: #1a1a1a;
 } 
