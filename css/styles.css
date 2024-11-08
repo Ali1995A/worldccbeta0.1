@@ -168,7 +168,7 @@ select {
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    opacity: 0.8;
+    opacity: 0.4;
     transition: opacity 0.3s ease;
 }
 
