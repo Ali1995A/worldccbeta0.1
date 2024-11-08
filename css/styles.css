@@ -170,6 +170,8 @@ select {
     -webkit-backdrop-filter: blur(8px);
     opacity: 0.5;
     transition: opacity 0.3s ease;
+    -webkit-appearance: none;  /* 添加这行 */
+    -moz-appearance: none;     /* 添加这行 */
 }
 
 /* 悬停时提高不透明度 */
@@ -179,16 +181,16 @@ select:hover {
 
 /* 确保选项的背景色和文字颜色正确 */
 select option {
-    background-color: #1a1a1a;
+    background-color: #1a1a1a !important;  /* 添加 !important */
     color: var(--text-color);
 }
 
 /* 深色主题特别处理 */
-.dark-theme select option {
+{
     background-color: #1a1a1a;
 }
 
 /* 浅色主题特别处理 */
-.light-theme select option {
+{
     background-color: #1a1a1a;
 } 
