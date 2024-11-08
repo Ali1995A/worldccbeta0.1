@@ -199,4 +199,8 @@ select option {
 /* 浅色主题特别处理 */
 .light-theme select option {
     background-color: #ffffff;
-} 
+}
+
+.world-clock .time {
+    font-size: 1.4em;
+}
