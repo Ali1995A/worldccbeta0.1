@@ -96,8 +96,16 @@ canvas {
 }
 
 .world-clock {
-    text-align: center;
-    animation: slideUp 0.5s ease-out;
+    font-size: calc(var(--base-font-size) * 1.4);
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.world-clock select {
+    font-size: 0.8em;
+    padding: 8px 12px;
 }
 
 .timezone-select {
@@ -168,7 +176,7 @@ select {
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    opacity: 0.4;
+    opacity: 0.5;
     transition: opacity 0.3s ease;
 }
 
