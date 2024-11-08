@@ -8,13 +8,7 @@
 .dark-theme {
     --bg-color: #000;
     --text-color: #fff;
-    --select-bg: rgba(0, 0, 0, 0.1);
-}
-
-.light-theme {
-    --bg-color: #fff;
-    --text-color: #000;
-    --select-bg: rgba(0, 0, 0, 0.1);
+    --select-bg: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -102,16 +96,8 @@ canvas {
 }
 
 .world-clock {
-    font-size: calc(var(--base-font-size) * 1.4);
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.world-clock select {
-    font-size: 0.8em;
-    padding: 8px 12px;
+    text-align: center;
+    animation: slideUp 0.5s ease-out;
 }
 
 .timezone-select {
@@ -127,7 +113,7 @@ canvas {
 }
 
 .world-time {
-    font-size: 3rem;
+    font-size: 1.2rem;
 }
 
 .fullscreen-hint {
@@ -205,8 +191,4 @@ select option {
 /* 浅色主题特别处理 */
 .light-theme select option {
     background-color: #ffffff;
-}
-
-.world-clock .time {
-    font-size: 1.4em;
-}
+} 
