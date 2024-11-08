@@ -1,38 +1,61 @@
 class ThemeManager {
     constructor() {
-        this.isDark = true;
+        this.themes = {
+            dark: {
+                name: 'dark-theme',
+                icon: '🌙'
+            },
+            light: {
+                name: 'light-theme',
+                icon: '☀️'
+            }
+        };
+        this.currentTheme = 'dark'; // 默认深色主题
         this.loadPreferences();
         this.initThemeToggle();
     }
 
     loadPreferences() {
-        const preferences = JSON.parse(localStorage.getItem('themePreferences') || '{}');
-        this.isDark = preferences.isDark ?? true;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            this.currentTheme = savedTheme;
+        }
         this.applyTheme();
     }
 
     savePreferences() {
-        const preferences = {
-            isDark: this.isDark
-        };
-        localStorage.setItem('themePreferences', JSON.stringify(preferences));
+        localStorage.setItem('theme', this.currentTheme);
     }
 
     applyTheme() {
-        document.body.classList.toggle('dark-theme', this.isDark);
+        // 移除所有主题类
+        Object.values(this.themes).forEach(theme => {
+            document.body.classList.remove(theme.name);
+        });
+        
+        // 应用当前主题
+        document.body.classList.add(this.themes[this.currentTheme].name);
+        
+        // 更新主题切换按钮图标
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = this.themes[this.currentTheme].icon;
+        
+        // 调整星空背景透明度
+        const canvas = document.getElementById('starfield');
+        canvas.style.opacity = this.currentTheme === 'dark' ? '1' : '0.3';
     }
 
     toggleTheme() {
-        this.isDark = !this.isDark;
+        this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
         this.applyTheme();
         this.savePreferences();
     }
 
     initThemeToggle() {
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            this.toggleTheme();
-        });
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => this.toggleTheme());
     }
 }
 
+// 初始化主题管理器
 const themeManager = new ThemeManager(); 
