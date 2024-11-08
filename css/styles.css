@@ -155,4 +155,40 @@ canvas {
         flex-direction: column;
         gap: 1rem;
     }
+}
+
+/* 修改时区选择器的样式 */
+select {
+    background: var(--select-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* 悬停时提高不透明度 */
+select:hover {
+    opacity: 1;
+}
+
+/* 确保选项的背景色和文字颜色正确 */
+select option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 深色主题特别处理 */
+.dark-theme select option {
+    background-color: #1a1a1a;
+}
+
+/* 浅色主题特别处理 */
+.light-theme select option {
+    background-color: #ffffff;
 } 
