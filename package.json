@@ -1,0 +1,16 @@
+{
+  "name": "worldcc",
+  "version": "1.0.0",
+  "description": "An elegant world clock application with Apple-style design aesthetics",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "keywords": [
+    "world-clock",
+    "timezone",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT"
+} 

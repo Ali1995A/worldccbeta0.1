@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldCC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="settings">
+            <button id="themeToggle" class="icon-button" title="Toggle Theme">🌓</button>
+            <button id="formatToggle" class="icon-button" title="Toggle 12/24 Hour">24H</button>
+        </div>
+
+        <div class="main-clock">
+            <div class="time" id="mainTime"></div>
+            <div class="date" id="mainDate"></div>
+        </div>
+
+        <div class="world-clocks">
+            <div class="world-clock">
+                <select class="timezone-select"></select>
+                <div class="world-time"></div>
+            </div>
+            <div class="world-clock">
+                <select class="timezone-select"></select>
+                <div class="world-time"></div>
+            </div>
+            <div class="world-clock">
+                <select class="timezone-select"></select>
+                <div class="world-time"></div>
+            </div>
+        </div>
+
+        <div class="fullscreen-hint">CC Double-click for fullscreen CC</div>
+    </div>
+    
+    <canvas id="starfield"></canvas>
+
+    <script src="js/starfield.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html> 
