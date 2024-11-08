@@ -185,7 +185,7 @@ select option {
 
 /* 深色主题特别处理 */
 .dark-theme select option {
-    background-color: #1a1a1a;
+    background-color: #ffffff;
 }
 
 /* 浅色主题特别处理 */
