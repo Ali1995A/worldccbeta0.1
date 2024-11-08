@@ -159,7 +159,7 @@ canvas {
 
 /* 修改时区选择器的样式 */
 select {
-    background: var(--select-bg);
+    background: #1a1a1a;
     color: var(--text-color);
     border: none;
     padding: 5px 10px;
