@@ -110,6 +110,7 @@ canvas {
     backdrop-filter: blur(10px);
     transition: background-color var(--transition-duration),
                 color var(--transition-duration);
+    text-align: center;  /* 添加这行来居中对齐文本 */
 }
 
 .world-time {
