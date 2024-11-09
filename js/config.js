@@ -1,7 +1,7 @@
 // 配置文件，方便统一管理设置
 const EASTER_EGG_CONFIG = {
-    startHour: 10,
-    endHour: 12,
+    startHour: 1,
+    endHour: 24,
     interval: 3000,      // 生成新CC的间隔时间（毫秒）
     animationDuration: 2000,  // 动画持续时间（毫秒）
     maxElements: 10,     // 同时存在的最大CC数量
