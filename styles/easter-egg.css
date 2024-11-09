@@ -1,0 +1,23 @@
+.easter-egg {
+  position: fixed;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+}
+
+@keyframes twinkle {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5) rotate(-15deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2) rotate(15deg); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(1) rotate(0deg); 
+  }
+} 
