@@ -172,6 +172,7 @@ select {
     transition: opacity 0.3s ease;
     -webkit-appearance: none;  /* 添加这行 */
     -moz-appearance: none;     /* 添加这行 */
+    text-align: center;  /* 让选择框中的文本居中 */
 }
 
 /* 悬停时提高不透明度 */
@@ -183,6 +184,7 @@ select:hover {
 select option {
     background-color: #1a1a1a !important;  /* 添加 !important */
     color: var(--text-color);
+    text-align: left;  /* 让下拉选项左对齐 */
 }
 
 /* 深色主题特别处理 */
