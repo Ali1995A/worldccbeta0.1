@@ -173,6 +173,7 @@ select {
     transition: opacity 0.3s ease;
     -webkit-appearance: none;  /* 添加这行 */
     -moz-appearance: none;     /* 添加这行 */
+    text-align-last: center;  /* 使用 text-align-last 来控制选择框中的文本居中 */
     text-align: center;  /* 让选择框中的文本居中 */
 }
 
