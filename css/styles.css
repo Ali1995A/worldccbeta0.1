@@ -80,6 +80,8 @@ canvas {
     font-size: 5rem;
     font-weight: 700;
     letter-spacing: 2px;
+    color: #ffffff;        /* 添加特定颜色 */
+    opacity: 0.9;         /* 添加透明度控制（0.9 = 90%不透明） */
 }
 
 .main-clock .date {
