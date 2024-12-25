@@ -25,7 +25,7 @@ class EasterEgg {
 
         const cc = document.createElement('div');
         cc.className = 'easter-egg';
-        cc.textContent = 'CC';
+        cc.textContent = 'CC Merry Christmas!';
         
         // 随机样式
         const size = this.getRandomValue(this.config.minSize, this.config.maxSize);
