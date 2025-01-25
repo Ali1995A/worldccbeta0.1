@@ -25,7 +25,7 @@ class EasterEgg {
 
         const cc = document.createElement('div');
         cc.className = 'easter-egg';
-        cc.textContent = 'CC Happy 2025 Year!';
+        cc.textContent = 'Happy Chinese New Year 2025, my CC!';
         
         // 随机样式
         const size = this.getRandomValue(this.config.minSize, this.config.maxSize);
