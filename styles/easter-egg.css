@@ -5,6 +5,11 @@
   pointer-events: none;
   opacity: 0;
   z-index: 9999;
+  max-width: min(70vw, 520px);
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 @keyframes twinkle {

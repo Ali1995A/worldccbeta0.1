@@ -3,12 +3,33 @@
     --text-color: #fff;
     --select-bg: rgba(255, 255, 255, 0.1);
     --transition-duration: 0.3s;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.35);
+    --ny-red: rgba(255, 0, 0, 0.88);
+    --ny-red-deep: rgba(180, 0, 0, 0.92);
+    --ny-gold: rgba(255, 215, 0, 0.92);
+    --ny-gold-soft: rgba(255, 227, 129, 0.92);
+    --panel-solid: #141414;
 }
 
 .dark-theme {
     --bg-color: #000;
     --text-color: #fff;
     --select-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --panel-solid: #141414;
+}
+
+.light-theme {
+    --bg-color: #f5f5f7;
+    --text-color: #0b0b0f;
+    --select-bg: rgba(0, 0, 0, 0.06);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.16);
+    --panel-solid: #ffffff;
 }
 
 * {
@@ -33,6 +54,175 @@ canvas {
     left: 0;
     z-index: 1;
     transition: opacity var(--transition-duration);
+}
+
+.newyear-banner {
+    position: fixed;
+    top: calc(56px + env(safe-area-inset-top));
+    left: 16px;
+    right: 16px;
+    margin: 0 auto;
+    max-width: 980px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 55%),
+        linear-gradient(135deg, rgba(255, 10, 10, 0.88), rgba(160, 0, 0, 0.92));
+    border: 1px solid rgba(255, 215, 0, 0.28);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    box-shadow: var(--shadow-elevated);
+    animation: newyearBannerIn 700ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.newyear-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
+        radial-gradient(circle at 85% 0%, rgba(255, 215, 0, 0.18), rgba(255, 215, 0, 0) 60%);
+    pointer-events: none;
+}
+
+.newyear-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 58px;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: rgba(88, 0, 0, 0.92);
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 55%),
+        linear-gradient(180deg, var(--ny-gold-soft), var(--ny-gold));
+    border: 1px solid rgba(120, 0, 0, 0.18);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20), 0 0 26px rgba(255, 215, 0, 0.18);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.32);
+}
+
+.newyear-text {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: rgba(255, 215, 0, 0.92);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    max-width: 46rem;
+}
+
+.newyear-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.newyear-lantern {
+    position: absolute;
+    top: calc(126px + env(safe-area-inset-top));
+    width: 56px;
+    height: 72px;
+    border-radius: 18px;
+    background:
+        linear-gradient(90deg,
+            rgba(255, 215, 0, 0.10) 0%,
+            rgba(255, 215, 0, 0.02) 18%,
+            rgba(255, 255, 255, 0.06) 50%,
+            rgba(255, 215, 0, 0.02) 82%,
+            rgba(255, 215, 0, 0.10) 100%),
+        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0) 52%),
+        linear-gradient(180deg, rgba(255, 0, 0, 0.86), rgba(170, 0, 0, 0.92));
+    border: 1px solid rgba(255, 215, 0, 0.22);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30), 0 0 48px rgba(255, 0, 0, 0.10);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    animation: lanternFloat 5.2s ease-in-out infinite;
+}
+
+.newyear-lantern::before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 18px;
+    background: linear-gradient(180deg, rgba(255, 215, 0, 0.70), rgba(255, 215, 0, 0));
+    box-shadow: 0 0 14px rgba(255, 215, 0, 0.22);
+}
+
+.newyear-lantern::after {
+    content: "";
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 215, 0, 0.78), rgba(255, 215, 0, 0));
+    filter: blur(0.2px);
+    opacity: 0.9;
+}
+
+.lantern-left {
+    left: 18px;
+    transform-origin: top center;
+    animation-delay: 0.2s;
+}
+
+.lantern-right {
+    right: 18px;
+    transform-origin: top center;
+    animation-delay: 0.9s;
+}
+
+.newyear-sparkles {
+    position: absolute;
+    inset: 0;
+    opacity: 0.42;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(255, 215, 0, 0.40) 0 1.6px, transparent 2.6px),
+        radial-gradient(circle at 86% 14%, rgba(255, 255, 255, 0.20) 0 1.1px, transparent 2.1px),
+        radial-gradient(circle at 76% 28%, rgba(255, 215, 0, 0.28) 0 1.2px, transparent 2.2px),
+        radial-gradient(circle at 22% 30%, rgba(255, 255, 255, 0.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 38%, rgba(255, 215, 0, 0.22) 0 1px, transparent 2px);
+    animation: sparklesDrift 7s ease-in-out infinite;
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1) 0 55%, rgba(0, 0, 0, 0) 86%);
+    mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1) 0 55%, rgba(0, 0, 0, 0) 86%);
+}
+
+@keyframes lanternFloat {
+    0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+    50% { transform: translateY(8px) rotate(1.2deg); }
+}
+
+@keyframes sparklesDrift {
+    0%, 100% { transform: translateY(0); opacity: 0.45; }
+    50% { transform: translateY(8px); opacity: 0.7; }
+}
+
+@keyframes newyearBannerIn {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .newyear-banner,
+    .newyear-lantern,
+    .newyear-sparkles {
+        animation: none !important;
+    }
 }
 
 .container {
@@ -158,45 +348,53 @@ canvas {
         flex-direction: column;
         gap: 1rem;
     }
+
+    .newyear-banner {
+        top: calc(50px + env(safe-area-inset-top));
+        left: 12px;
+        right: 12px;
+        padding: 9px 12px;
+    }
+
+    .newyear-text {
+        font-size: 0.95rem;
+    }
+
+    .newyear-lantern {
+        top: calc(110px + env(safe-area-inset-top));
+        width: 48px;
+        height: 62px;
+    }
 }
 
 /* 修改时区选择器的样式 */
 select {
-    background: #1a1a1a;
+    background: var(--glass-bg);
     color: var(--text-color);
-    border: none;
+    border: 1px solid var(--glass-border);
     padding: 5px 10px;
     border-radius: 8px;
     font-size: 1em;
     cursor: pointer;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    backdrop-filter: blur(12px) saturate(1.15);
+    -webkit-backdrop-filter: blur(12px) saturate(1.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     -webkit-appearance: none;  /* 添加这行 */
     -moz-appearance: none;     /* 添加这行 */
     text-align-last: center;  /* 使用 text-align-last 来控制选择框中的文本居中 */
     text-align: center;  /* 让选择框中的文本居中 */
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
 }
 
 /* 悬停时提高不透明度 */
 select:hover {
-    opacity: 1;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
 }
 
 /* 确保选项的背景色和文字颜色正确 */
 select option {
-    background-color: #1a1a1a !important;  /* 添加 !important */
+    background-color: var(--panel-solid) !important;  /* 添加 !important */
     color: var(--text-color);
     text-align: left;  /* 让下拉选项左对齐 */
 }
-
-/* 深色主题特别处理 */
-{
-    background-color: #1a1a1a;
-}
-
-/* 浅色主题特别处理 */
-{
-    background-color: #1a1a1a;
-} 

@@ -4,7 +4,10 @@
   "description": "An elegant world clock application with Apple-style design aesthetics",
   "main": "index.html",
   "scripts": {
-    "start": "serve ."
+    "start": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   },
   "keywords": [
     "world-clock",
