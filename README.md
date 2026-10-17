@@ -18,6 +18,10 @@ An elegant world clock application with Apple-style design aesthetics.
 
 ## Development and regression tests
 
+`package.json` pins the build runtime to Node.js 24 because Vercel discontinued
+Node.js 20 on October 1, 2026. The package setting overrides the older project
+dashboard default.
+
 The clocks use the browser's `Intl.DateTimeFormat` timezone rules. Keep the
 browser/OS up to date when governments change their timezone rules. No external
 JavaScript libraries are needed by the page. Browsers without
@@ -27,7 +31,7 @@ aliases are retained in either menu.
 Use a static server for development, for example `python3 -m http.server 4173`,
 then open http://localhost:4173.
 
-- `npm test`: Node.js 20+ behavior tests for timezone changes/DST, 12/24-hour
+- `npm test`: Node.js 24 behavior tests for timezone changes/DST, 12/24-hour
   formatting, malformed/blocked storage, saved aliases, themes, security config,
   plus source-level layout/style safeguards. No npm install is needed for these.
 - `npm ci && npx playwright install chromium`: install the optional browser-test
