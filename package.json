@@ -4,7 +4,10 @@
   "description": "An elegant world clock application with Apple-style design aesthetics",
   "main": "index.html",
   "scripts": {
-    "start": "serve ."
+    "start": "serve .",
+    "test": "node --test tests/clock-unit.test.cjs tests/styles-source.test.cjs",
+    "test:browser": "node --test tests/world-clock.test.cjs",
+    "test:all": "npm test && npm run test:browser"
   },
   "keywords": [
     "world-clock",
@@ -12,5 +15,11 @@
     "javascript"
   ],
   "author": "",
-  "license": "MIT"
-} 
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

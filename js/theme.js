@@ -16,15 +16,23 @@ class ThemeManager {
     }
 
     loadPreferences() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            this.currentTheme = savedTheme;
+        try {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                this.currentTheme = savedTheme;
+            }
+        } catch {
+            // A blocked storage API must not prevent theme controls starting.
         }
         this.applyTheme();
     }
 
     savePreferences() {
-        localStorage.setItem('theme', this.currentTheme);
+        try {
+            localStorage.setItem('theme', this.currentTheme);
+        } catch {
+            // Keep the selected theme for this visit even if it cannot be saved.
+        }
     }
 
     applyTheme() {

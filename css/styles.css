@@ -2,6 +2,7 @@
     --bg-color: #000;
     --text-color: #fff;
     --select-bg: rgba(255, 255, 255, 0.1);
+    --option-bg: #1a1a1a;
     --transition-duration: 0.3s;
 }
 
@@ -9,6 +10,24 @@
     --bg-color: #000;
     --text-color: #fff;
     --select-bg: rgba(255, 255, 255, 0.1);
+    --option-bg: #1a1a1a;
+    color-scheme: dark;
+}
+
+.light-theme {
+    --bg-color: #f5f7fa;
+    --text-color: #172033;
+    --select-bg: rgba(23, 32, 51, 0.09);
+    --option-bg: #fff;
+    color-scheme: light;
+}
+
+.light-theme canvas {
+    filter: invert(1);
+}
+
+.light-theme select {
+    opacity: 1;
 }
 
 * {
@@ -22,7 +41,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: background-color var(--transition-duration),
                 color var(--transition-duration);
 }
@@ -38,13 +58,14 @@ canvas {
 .container {
     position: relative;
     z-index: 2;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    padding: 1rem;
+    /* Leave room for settings, even when the clocks need to scroll. */
+    padding: 4.5rem 1rem;
 }
 
 .settings {
@@ -80,7 +101,7 @@ canvas {
     font-size: 5rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #ffffff;        /* 添加特定颜色 */
+    color: var(--text-color);
     opacity: 0.8;         /* 添加透明度控制（0.9 = 90%不透明） */
 }
 
@@ -162,7 +183,7 @@ canvas {
 
 /* 修改时区选择器的样式 */
 select {
-    background: #1a1a1a;
+    background: var(--option-bg);
     color: var(--text-color);
     border: none;
     padding: 5px 10px;
@@ -186,17 +207,7 @@ select:hover {
 
 /* 确保选项的背景色和文字颜色正确 */
 select option {
-    background-color: #1a1a1a !important;  /* 添加 !important */
+    background-color: var(--option-bg);
     color: var(--text-color);
     text-align: left;  /* 让下拉选项左对齐 */
 }
-
-/* 深色主题特别处理 */
-{
-    background-color: #1a1a1a;
-}
-
-/* 浅色主题特别处理 */
-{
-    background-color: #1a1a1a;
-} 
